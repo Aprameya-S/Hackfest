@@ -7,16 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { UserCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 import { logo } from '../../assets'
 import './navbar.scss'
-import { signInWithGoogle, signOutFromGoogle } from '../../Firebase';
+import { db, signInWithGoogle, signOutFromGoogle } from '../../Firebase';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AuthContext } from '../../context/AuthContext';
+import { addDoc, collection } from 'firebase/firestore';
 
 
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { handleSignOutContext } = useContext(AuthContext)
+  const { handleSignOutContext, isSignedIn: sign } = useContext(AuthContext)
   const handleMenuClick = () => {    
     if(!menuOpen){
       setMenuOpen((prev) => !prev)
@@ -53,6 +54,15 @@ const Navbar = () => {
 
   const valids = ["joshuatauro45@gmail.com", "aprameyashankar@gmail.com"]
 
+  const handleSubscribe = async() => {
+    const subsRef = collection(db, "subscription")
+    if(sign){
+      await addDoc(subsRef, {name: localStorage.getItem("googleDisplayName"), email: localStorage.getItem("userEmail")})
+      toast.success("Successfully subscribed!")
+    }else{
+      toast.error("Please sign into your account to be able to subscribe")
+    }
+  }
 
   return (
     <>
@@ -101,7 +111,8 @@ const Navbar = () => {
                 <a onClick={handleSignOut} >Sign out</a>
               </>}
               
-              
+          <button onClick={handleSubscribe} className="gradient-button max-w-min mt-2">Subscribe</button>
+            
           <div className='buttons-container'>
             <ConnectButton />
             {/* <GoogleAuth /> */}
