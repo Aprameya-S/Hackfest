@@ -82,7 +82,7 @@ const CreateCampaign = () => {
       
 
       const campaignsRef = collection(db, "campaigns")
-      await addDoc(campaignsRef, {address: address, doc: form.documentUrl, name: form.beneficiaryName, verified: false})
+      await addDoc(campaignsRef, {address: address, doc: form.documentUrl, name: form.beneficiaryName, verified: false, checked: false})
       
       //navigate('/campaigns');
       // toast.success("Campaign was successfully created.")

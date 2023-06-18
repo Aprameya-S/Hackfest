@@ -10,10 +10,21 @@ import { Transaction, Loader } from '../../components'
 import './campaigndetails.scss'
 import { badge } from '../../assets'
 
+import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
+import { db } from '../../Firebase'
+import { doc, updateDoc } from "firebase/firestore";
+
 const CampaignDetails = () => {
   useEffect(() => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+
+    // const getCampaigns = async() => {
+    //   const campaignQuery = query(campaignsRef)
+    //   const c = await getDocs(campaignQuery)
+    //   setFirebaseCampaigns(c.docs.map(chat => [chat.data(), chat.id]))
+    // }
+
   }, []);
 
   //setting state of the campaign which contains all data
@@ -24,6 +35,11 @@ const CampaignDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [amountDonated, setAmountDonated] = useState(0);
   const [donations, setDonations] = useState([]);
+
+  const campaignsRef = collection(db, "campaigns")
+  // const [firebaseCampaigns, setFirebaseCampaigns] = useState([])
+  const [isVerified, setIsVerified] = useState(false)
+  // console.log(firebaseCampaigns)
 
   function sum(obj) {
     return Object.keys(obj).reduce((sum,key)=>sum+parseFloat(obj[key]||0),0);
@@ -39,9 +55,25 @@ const CampaignDetails = () => {
       })
       setDonations(campaignDonations) //all donations made to this campaign
       setAmountDonated(amount) //total donations made to this campaign
+
+      const campaignQuery = query(campaignsRef)
+      const c = await getDocs(campaignQuery)
+      const camp=[];
+      c.docs.map(campaign => {
+        camp.push([campaign.data(), campaign.id])
+      })
+      
+      camp.forEach((c) => {
+        console.log(c[0].address,state.owner)
+        // if(c.address==state.owner){
+        //   console.log(c.address)
+        // }
+      })
+      
       setIsLoading(false)
     // console.log(campaignDonators, amount)
   }
+
 
   const progress = calculateBarPercentage(state.target, amountDonated);
 
@@ -107,7 +139,8 @@ const CampaignDetails = () => {
           <h3>Story</h3>
           <p className='story'>
             {state.description}<br/><br/>
-            <span className='flex'><img src={badge} className='mr-[10px]' alt="Verified" /><a href={state.documentUrl}>Click here</a> to view documents.</span>
+            <span className='flex text-green-600 mb-[10px]'><img src={badge} className='mr-[5px]' alt="Verified" />Verified</span>
+            <span><a href={state.documentUrl}>Click here</a> to view documents.</span>
           </p>  
         </div>
 

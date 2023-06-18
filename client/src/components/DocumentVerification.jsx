@@ -2,6 +2,10 @@ import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestam
 import React, { useEffect, useState } from 'react'
 import { db } from '../Firebase'
 import { doc, updateDoc } from "firebase/firestore";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const DocumentVerification = () => {
   const campaignsRef = collection(db, "campaigns")
   const [campaigns, setCampaigns] = useState([])
@@ -17,13 +21,22 @@ const DocumentVerification = () => {
   }, [])
 
   const handleVerified = async (campaign) => {
-    const washingtonRef = doc(db, "campaigns", campaign[1]);
+    const cRef = doc(db, "campaigns", campaign[1]);
 
-    await updateDoc(washingtonRef, {
-      verified: true
+    await updateDoc(cRef, {
+      verified: true,
+      checked: true
     });
+    toast.success("Campaign was verified.")
+  }
+  const handleRejection = async (campaign) => {
+    const cRef = doc(db, "campaigns", campaign[1]);
 
-    console.log("campaign")
+    await updateDoc(cRef, {
+      verified: false,
+      checked: true
+    });
+    toast.success("Campaign was rejected.")
   }
 
   console.log(campaigns)
@@ -37,7 +50,7 @@ const DocumentVerification = () => {
           <h3>{campaign[0].address}</h3>
           <a href={campaign[0].doc}>Documents</a><br/>
           <button onClick={(e)=>handleVerified(campaign)}>Accept</button><br/>
-          <button>Reject</button>
+          <button onClick={(e)=>handleRejection(campaign)}>Reject</button>
         </div>
       ))}
     </div>
