@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Footer, Navbar } from './components'
-import { Home, Campaigns, CampaignDetails, CreateCampaign} from './pages'
+import { Home, Campaigns, CampaignDetails, CreateCampaign, Profile, CreateResearchCampaign, ResearchCampaigns } from './pages'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,11 +28,15 @@ function App() {
         <Navbar />
         <FloatingChat />
         <div id="pages">
-          <Routes>
+        <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/campaigns' element={<Campaigns />}/>
           <Route path='/create-campaign' element={<CreateCampaign />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path="/campaign-details/:id" element={<CampaignDetails />}/>
+          <Route path='/research/*' element={<h1>Research</h1>} />
+          <Route path='/research/create-campaign' element={<CreateResearchCampaign />}/>
+          <Route path='/research/campaigns' element={<ResearchCampaigns />}/>
           <Route path='/admin' element={
             <Protected>
               <Admin/>
