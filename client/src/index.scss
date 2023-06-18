@@ -10,6 +10,9 @@ $sec-color: #7245f0;
 $prim-grad: linear-gradient(135deg, #c479eb, #7648f0); 
 $bg-color: #ffffff;
 
+.custom-border{
+  border: 2px linear-gradient(#7245f09b,rgba(114,69,240,0));
+}
 
 .gradient-button {
     background-image: linear-gradient(#7245f09b,rgba(114,69,240,0));

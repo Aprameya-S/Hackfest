@@ -88,7 +88,9 @@ const Admin = () => {
         }
       </div>
     </div>
-    <DocumentVerification />
+    <div className="mx-3">
+      <DocumentVerification />
+    </div>
     </>
   )
 }
