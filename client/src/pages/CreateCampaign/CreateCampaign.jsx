@@ -9,20 +9,26 @@ import { useStateContext } from '../../context'
 import { Loader } from '../../components'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useAddress } from '@thirdweb-dev/react'
+import { useAddress } from '@thirdweb-dev/react';
+
+
+import { db } from '../../Firebase'
+import {
+    collection,
+    addDoc,
+  } from "firebase/firestore";
+
 
 const CreateCampaign = () => {
-  const address=useAddress();
-
   useEffect(() => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-
-    console.log(address)
   }, []);
 
   const navigate = useNavigate();
   const { createCampaign } = useStateContext();
+  const address=useAddress()
+  console.log(address)
 
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
@@ -75,7 +81,8 @@ const CreateCampaign = () => {
       }
       
 
-      
+      const campaignsRef = collection(db, "campaigns")
+      await addDoc(campaignsRef, {address: address, doc: form.documentUrl, name: form.beneficiaryName, verified: false})
       
       //navigate('/campaigns');
       // toast.success("Campaign was successfully created.")

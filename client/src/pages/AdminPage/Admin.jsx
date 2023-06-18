@@ -1,6 +1,7 @@
 import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { db } from '../../Firebase'
+import { DocumentVerification } from '../../components'
 
 const Admin = () => {
   const usersRef = collection(db, "users")
@@ -55,6 +56,7 @@ const Admin = () => {
   }
 
   return (
+    <>
     <div className='mx-3 mt-5  border-[3px] rounded-md border-cta grid grid-cols-10 chat overflow-hidden'>
       <div className="bg-[#EEF0F2] col-span-2 w-full h-full">
         <div className=" ">
@@ -86,6 +88,8 @@ const Admin = () => {
         }
       </div>
     </div>
+    <DocumentVerification />
+    </>
   )
 }
 

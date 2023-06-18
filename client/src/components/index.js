@@ -11,6 +11,7 @@ import CampaignCard from './CampaignCard/CampaignCard';
 import FormField from './FormField/FormField';
 import GoogleAuth from './GoogleAuth/GoogleAuth';
 import Footer from './Footer/Footer';
+import DocumentVerification from './DocumentVerification';
 
 export {
     Loader,
@@ -23,5 +24,6 @@ export {
     CampaignCard,
     FormField,
     GoogleAuth,
-    Footer
+    Footer,
+    DocumentVerification
 };
