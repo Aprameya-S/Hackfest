@@ -10,7 +10,7 @@ import { Loader } from '../../components'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAddress } from '@thirdweb-dev/react';
-
+import emailjs from "emailjs-com"
 
 import { db } from '../../Firebase'
 import {
@@ -63,6 +63,7 @@ const CreateCampaign = () => {
     })
     // console.log(form)
 
+
     try {
       setIsLoading(true);
       
@@ -78,6 +79,8 @@ const CreateCampaign = () => {
         
         //create new campaign
         await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)}); //change target from readable form to weight of ETH
+        emailjs.init("2cVodszu6BzpG1u1S")
+        emailjs.send('service_jei44ah', 'template_v9ynymp', {message: `New campaign created : ${form.title}`, to_name: "Joshua", description: form.description})
       }
       
 
