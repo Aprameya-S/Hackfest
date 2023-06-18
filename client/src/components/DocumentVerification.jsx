@@ -1,7 +1,7 @@
 import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { db } from '../Firebase'
-
+import { doc, updateDoc } from "firebase/firestore";
 const DocumentVerification = () => {
   const campaignsRef = collection(db, "campaigns")
   const [campaigns, setCampaigns] = useState([])
@@ -17,6 +17,11 @@ const DocumentVerification = () => {
   }, [])
 
   const handleVerified = async (campaign) => {
+    const washingtonRef = doc(db, "campaigns", campaign[1]);
+
+    await updateDoc(washingtonRef, {
+      verified: true
+    });
 
     console.log("campaign")
   }
