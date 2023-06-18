@@ -17,7 +17,7 @@ const DocumentVerification = () => {
   }, [])
 
   const handleVerified = async (campaign) => {
-    const res = db.collection('campaigns').doc(campaign[1]).update({verified: true})
+
     console.log("campaign")
   }
 
