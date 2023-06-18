@@ -9,11 +9,16 @@ import { useStateContext } from '../../context'
 import { Loader } from '../../components'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAddress } from '@thirdweb-dev/react'
 
 const CreateCampaign = () => {
+  const address=useAddress();
+
   useEffect(() => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+
+    console.log(address)
   }, []);
 
   const navigate = useNavigate();
