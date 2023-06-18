@@ -1,0 +1,114 @@
+$prim-font:'Montserrat', sans-serif;
+$sec-font:'Cormorant', serif;
+$prim-color: #222222;
+$sec-color: #7245f0;
+$prim-grad: linear-gradient(135deg, #c479eb, #7648f0); 
+$bg-color: #ffffff;
+$line-color: rgba(114,69,240,.2);
+
+
+#auth {
+    margin-left: 10px;
+    position: relative;
+    .signin-btn,
+    .signout-btn {
+        // background: $prim-grad !important;
+        font-size: 16px;
+        font-weight: 500;
+        color: $prim-color;
+        padding-inline: 15px;
+        height: 40px;
+        border-radius: 100vw;
+        border: 2px solid $sec-color;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+    
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+    }
+    .signout-container .signout-btn {
+        aspect-ratio: 1;
+        padding: 0;
+        overflow: hidden;
+        background-color: $sec-color;
+
+        img {
+            width: 100%;
+            border-radius: 100vw;
+        }
+    }
+
+    .signout-container {
+        position: relative;
+
+        .user-menu {
+            position: absolute;
+            top: 55px;
+            display: block;
+            width: 260px;
+            right: -40px;
+            background: transparent;
+            backdrop-filter: blur(8px);
+            // border-bottom: 1px solid $line-color;
+            transform-origin: top;
+            transition: all .6s cubic-bezier(.19,1,.22,1);
+            z-index: -1 !important;
+            height: 0px;
+            overflow: hidden;
+            padding-top: 1px;
+
+            a {
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                display: flex;
+                gap: 3px;
+                padding-block: 8px;
+                padding-inline: 9px;
+                cursor: pointer;
+                background-blend-mode: difference;
+                border-bottom: 1px solid $line-color;
+                transition: all .2s ease;
+
+                &:hover {
+                    padding-left: 20px;
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #auth {
+        margin-left: 0px;
+    }
+    #auth .signout-container {
+        .signout-btn {
+            height: 32px;
+            margin-top: 0px;
+            border: 1px solid $sec-color;
+        }
+        
+    }
+    #auth .signin-btn {
+        font-size: 15px;
+        padding-inline: 12px;
+        height: 32px;
+        font-weight: 500;
+    }
+
+    #auth .signout-container .user-menu {
+        display: none;
+        top: 47px;
+        width: 100vw;
+        right: -20px;
+        a {
+            font-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,127 @@
+$prim-font:'Montserrat', sans-serif;
+$sec-font:'Cormorant', serif;
+$prim-color: #222222;
+$sec-color: #7245f0;
+$prim-grad: linear-gradient(135deg, #c479eb, #7648f0); 
+$bg-color: #ffffff;
+$line-color: rgba(114,69,240,.2);
+
+
+:root {
+  --strand-color: #c479eb;
+  --strand-color-alt: #f1591d;
+  --strand-width: 2.5rem;
+  --strand-height: .5rem;
+  --strand-line: .125rem;
+  --strand-ball: calc(var(--strand-height) * .75);
+  --animation-duration: 0.5s;
+  --animation-delay: calc(var(--animation-duration) * -.375); // make this negative so the offset operates immediately
+}
+.loader-container {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(90deg, #fff 30%, #d5e5ff) !important;
+  height: 100vh !important;
+  width: 100vw;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  font-size: 20px;
+  font-weight: 600;
+
+  .dna {
+    rotate: 90deg;
+    width: var(--strand-width);
+    display: block;
+    scale: 1.2;
+    margin-bottom: -30px;
+  }
+  
+  .strand {
+    position: relative;
+    width: var(--strand-width);
+    height: var(--strand-height);
+    
+    &:nth-child(3n) { // Add a bit of variation
+      --strand-color: #7648f0;
+    }
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: var(--strand-color);
+      animation-duration: calc(var(--animation-duration));
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+      animation-delay: calc(var(--s) * var(--animation-delay));
+    }
+  
+    &:nth-of-type(1){&::before, &::after{animation-delay: calc(0 * var(--animation-delay));
+    }}
+    &:nth-of-type(2){&::before, &::after{animation-delay: calc(1 * var(--animation-delay));
+    }}
+    &:nth-of-type(3){&::before, &::after{animation-delay: calc(2 * var(--animation-delay));
+    }}
+    &:nth-of-type(4){&::before, &::after{animation-delay: calc(3 * var(--animation-delay));
+    }}
+    &:nth-of-type(5){&::before, &::after{animation-delay: calc(4 * var(--animation-delay));
+    }}
+    &:nth-of-type(6){&::before, &::after{animation-delay: calc(5 * var(--animation-delay));
+    }}
+    &:nth-of-type(7){&::before, &::after{animation-delay: calc(6 * var(--animation-delay));
+    }}
+    &:nth-of-type(8){&::before, &::after{animation-delay: calc(7 * var(--animation-delay));
+    }}
+    &:nth-of-type(9){&::before, &::after{animation-delay: calc(8 * var(--animation-delay));
+    }}
+    &:nth-of-type(10){&::before, &::after{animation-delay: calc(9 * var(--animation-delay));
+    }}
+    &:nth-of-type(11){&::before, &::after{animation-delay: calc(10 * var(--animation-delay));
+    }}
+    &:nth-of-type(12){&::before, &::after{animation-delay: calc(11 * var(--animation-delay));
+    }}
+    &:nth-of-type(13){&::before, &::after{animation-delay: calc(12 * var(--animation-delay));
+    }}
+    &:nth-of-type(14){&::before, &::after{animation-delay: calc(13 * var(--animation-delay));
+    }}
+    &:nth-of-type(15){&::before, &::after{animation-delay: calc(14 * var(--animation-delay));
+    }}
+    &:nth-of-type(16){&::before, &::after{animation-delay: calc(15 * var(--animation-delay));
+    }}
+    
+    &::before {
+      left: calc(var(--strand-ball) / 2);
+      top: calc((var(--strand-height) - var(--strand-line)) / 2);
+      width: calc(var(--strand-width) - var(--strand-ball));
+      height: var(--strand-line);
+      animation-name: line;
+      will-change: transform;
+    }
+    
+    &::after {
+      top: calc((var(--strand-height) - var(--strand-ball)) / 2);
+      width: var(--strand-ball);
+      height: var(--strand-ball);
+      border-radius: 50%;
+      box-shadow: calc(var(--strand-width) - var(--strand-ball)) 0 0 var(--strand-color);
+      animation-name: ball;
+      will-change: transform, box-shadow;
+    }
+  }
+  
+}
+
+@keyframes line {
+  to { transform: scaleX(0); }
+}
+
+@keyframes ball {
+  to {
+    transform: translateX(calc((var(--strand-width) - var(--strand-ball)) / 2));
+    box-shadow: 0 0 0 var(--strand-color);
+  }
+}

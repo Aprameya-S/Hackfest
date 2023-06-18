@@ -1,0 +1,81 @@
+$prim-font:'Montserrat', sans-serif;
+$sec-font:'Cormorant', serif;
+$prim-color: #222222;
+$sec-color: #7245f0;
+$prim-grad: linear-gradient(135deg, #c479eb, #7648f0); 
+$bg-color: #ffffff;
+
+.not-a-form {
+    border: 2px solid $prim-color;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+
+    .connect-wallet{
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: $prim-color;
+        padding: 7px;
+        padding-inline: 15px;
+        // border-radius: 20px;
+        text-align: left;
+        transition: 0.5s ease;
+        border: 2px solid $sec-color;
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+    }
+
+    .send-amt {
+        border-radius: 20px;
+        width: fit-content;
+        justify-self: flex-end;
+    }
+    label {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    input,
+    textarea {
+        font-size: 18px;
+        font-weight: 500;
+        background-color: transparent;
+        border: 2px solid $prim-color;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    textarea {
+        min-height: 100px;
+        margin-bottom: 20px;
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .not-a-form .connect-wallet {
+        $prim-color-space: nowrap;
+        overflow: scroll;
+        text-overflow: ellipsis;
+
+        p {
+            $prim-color-space: nowrap;
+            overflow: scroll;
+            text-overflow: ellipsis;
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+    .not-a-form {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .not-a-form {
+        border: 1px solid $prim-color;
+    }
+}

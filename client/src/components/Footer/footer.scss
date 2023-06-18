@@ -1,0 +1,16 @@
+$prim-font:'Montserrat', sans-serif;
+$sec-font:'Cormorant', serif;
+$prim-color: #222222;
+$sec-color: #7245f0;
+$prim-grad: linear-gradient(135deg, #c479eb, #7648f0); 
+$bg-color: #ffffff;
+$line-color: rgba(114,69,240,.2);
+
+footer#footer {
+    border-top: 1px solid $prim-color;
+    font-size: 14px;
+    font-weight: 500;
+    padding-block: 15px;
+    text-align: center;
+    margin-top: 120px;
+}
