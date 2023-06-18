@@ -41,95 +41,95 @@ const Home = () => {
   }
 
   //why us section parallax
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    let mm = gsap.matchMedia();
-    mm.add("(min-width: 1000px)", () => {
-      gsap.to(".text-box-1", {
-        scrollTrigger: {
-          trigger: ".text-box-1",
-          scrub: true,
-        },
-        y: 100,
-        ease: "none",
-      })
-      gsap.to(".img-box-1", {
-        scrollTrigger: {
-          trigger: ".img-box-1",
-          scrub: true,
-        },
-        y: -80,
-        ease: "none",
-      })
-      gsap.to(".img-box-1 img", {
-        scrollTrigger: {
-          trigger: ".img-box-1",
-          scrub: true,
-        },
-        y: -50,
-        ease: "none",
-      })
-      gsap.to(".text-box-2", {
-        scrollTrigger: {
-          trigger: ".img-box-1",
-          scrub: true,
-        },
-        y: -200,
-        ease: "none",
-      })
-      gsap.to(".img-box-2", {
-        scrollTrigger: {
-          trigger: ".img-box-2",
-          scrub: true,
-        },
-        scale:0.9,
-        ease: "none",
-      })
-      gsap.to(".img-box-2 img", {
-        scrollTrigger: {
-          trigger: ".img-box-2",
-          scrub: true,
-        },
-        y: -100,
-        ease: "none",
-      })
-      gsap.to(".text-box-3", {
-        scrollTrigger: {
-          trigger: ".img-box-2",
-          scrub: true,
-        },
-        y: -500,
-        ease: "none",
-      })
-      gsap.to(".img-box-3", {
-        scrollTrigger: {
-          trigger: ".img-box-2",
-          scrub: true,
-        },
-        y: -200,
-        scale: 1.3,
-        ease: "none",
-      })
-      gsap.to(".img-box-3 img", {
-        scrollTrigger: {
-          trigger: ".img-box-3",
-          scrub: true,
-        },
-        y: -50,
-        ease: "none",
-      })
-      gsap.to(".text-box-4", {
-        scrollTrigger: {
-          trigger: ".img-box-3",
-          scrub: true,
-        },
-        y: -400,
-        ease: "none",
-      })
-    });
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   let mm = gsap.matchMedia();
+  //   mm.add("(min-width: 1000px)", () => {
+  //     gsap.to(".text-box-1", {
+  //       scrollTrigger: {
+  //         trigger: ".text-box-1",
+  //         scrub: true,
+  //       },
+  //       y: 100,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-1", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-1",
+  //         scrub: true,
+  //       },
+  //       y: -80,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-1 img", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-1",
+  //         scrub: true,
+  //       },
+  //       y: -50,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".text-box-2", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-1",
+  //         scrub: true,
+  //       },
+  //       y: -200,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-2", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-2",
+  //         scrub: true,
+  //       },
+  //       scale:0.9,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-2 img", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-2",
+  //         scrub: true,
+  //       },
+  //       y: -100,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".text-box-3", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-2",
+  //         scrub: true,
+  //       },
+  //       y: -500,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-3", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-2",
+  //         scrub: true,
+  //       },
+  //       y: -200,
+  //       scale: 1.3,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".img-box-3 img", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-3",
+  //         scrub: true,
+  //       },
+  //       y: -50,
+  //       ease: "none",
+  //     })
+  //     gsap.to(".text-box-4", {
+  //       scrollTrigger: {
+  //         trigger: ".img-box-3",
+  //         scrub: true,
+  //       },
+  //       y: -400,
+  //       ease: "none",
+  //     })
+  //   });
 
     
-  }, []);
+  // }, []);
 
   return (
     <div className='home-wrapper'>
@@ -149,7 +149,7 @@ const Home = () => {
       </section>
 
 
-      {/* <section className='campaigns-section medical-campaigns-section'>
+      <section className='campaigns-section medical-campaigns-section'>
       {(campaigns.length===0)?
         <div className="title">
           <span><h1>No active</h1></span>
@@ -228,7 +228,7 @@ const Home = () => {
         {researchCampaigns.length>0 && 
           <Link className='view-campaigns-btn' to='/research/campaigns'><button className="gradient-button">View all research campaigns<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="m.819 50.513 8.307 8.238 38.423-38.454-.059 28.89h11.638V.424H10.47l-.14 11.564h28.983L.819 50.513Zm55.31-47.09v42.764V3.424Z" fill="currentColor"></path></svg></button></Link>
         }
-      </section> */}
+      </section>
 
     </div>
   )
