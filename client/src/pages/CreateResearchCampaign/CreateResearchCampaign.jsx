@@ -9,6 +9,7 @@ import { useStateContext } from '../../context'
 import { Loader } from '../../components'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from "emailjs-com"
 
 const CreateResearchCampaign = () => {
   useEffect(() => {
@@ -67,6 +68,8 @@ const CreateResearchCampaign = () => {
 
       //create new research campaign
       await createResearchCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)}); //change target from readable form to weight of ETH
+      emailjs.init("2cVodszu6BzpG1u1S")
+        emailjs.send('service_jei44ah', 'template_v9ynymp', {message: `New research campaign created : ${form.title}`, to_name: "Joshua", description: form.description})
       console.log(form)
       
       //navigate('/campaigns');
