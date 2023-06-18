@@ -40,96 +40,96 @@ const Home = () => {
     // console.log(campaign)
   }
 
-  //why us section parallax
-  // useLayoutEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   let mm = gsap.matchMedia();
-  //   mm.add("(min-width: 1000px)", () => {
-  //     gsap.to(".text-box-1", {
-  //       scrollTrigger: {
-  //         trigger: ".text-box-1",
-  //         scrub: true,
-  //       },
-  //       y: 100,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-1", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-1",
-  //         scrub: true,
-  //       },
-  //       y: -80,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-1 img", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-1",
-  //         scrub: true,
-  //       },
-  //       y: -50,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".text-box-2", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-1",
-  //         scrub: true,
-  //       },
-  //       y: -200,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-2", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-2",
-  //         scrub: true,
-  //       },
-  //       scale:0.9,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-2 img", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-2",
-  //         scrub: true,
-  //       },
-  //       y: -100,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".text-box-3", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-2",
-  //         scrub: true,
-  //       },
-  //       y: -500,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-3", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-2",
-  //         scrub: true,
-  //       },
-  //       y: -200,
-  //       scale: 1.3,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".img-box-3 img", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-3",
-  //         scrub: true,
-  //       },
-  //       y: -50,
-  //       ease: "none",
-  //     })
-  //     gsap.to(".text-box-4", {
-  //       scrollTrigger: {
-  //         trigger: ".img-box-3",
-  //         scrub: true,
-  //       },
-  //       y: -400,
-  //       ease: "none",
-  //     })
-  //   });
+  // why us section parallax
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 1000px)", () => {
+      gsap.to(".text-box-1", {
+        scrollTrigger: {
+          trigger: ".text-box-1",
+          scrub: true,
+        },
+        y: 100,
+        ease: "none",
+      })
+      gsap.to(".img-box-1", {
+        scrollTrigger: {
+          trigger: ".img-box-1",
+          scrub: true,
+        },
+        y: -80,
+        ease: "none",
+      })
+      gsap.to(".img-box-1 img", {
+        scrollTrigger: {
+          trigger: ".img-box-1",
+          scrub: true,
+        },
+        y: -50,
+        ease: "none",
+      })
+      gsap.to(".text-box-2", {
+        scrollTrigger: {
+          trigger: ".img-box-1",
+          scrub: true,
+        },
+        y: -200,
+        ease: "none",
+      })
+      gsap.to(".img-box-2", {
+        scrollTrigger: {
+          trigger: ".img-box-2",
+          scrub: true,
+        },
+        scale:0.9,
+        ease: "none",
+      })
+      gsap.to(".img-box-2 img", {
+        scrollTrigger: {
+          trigger: ".img-box-2",
+          scrub: true,
+        },
+        y: -100,
+        ease: "none",
+      })
+      gsap.to(".text-box-3", {
+        scrollTrigger: {
+          trigger: ".img-box-2",
+          scrub: true,
+        },
+        y: -500,
+        ease: "none",
+      })
+      gsap.to(".img-box-3", {
+        scrollTrigger: {
+          trigger: ".img-box-2",
+          scrub: true,
+        },
+        y: -200,
+        scale: 1.3,
+        ease: "none",
+      })
+      gsap.to(".img-box-3 img", {
+        scrollTrigger: {
+          trigger: ".img-box-3",
+          scrub: true,
+        },
+        y: -50,
+        ease: "none",
+      })
+      gsap.to(".text-box-4", {
+        scrollTrigger: {
+          trigger: ".img-box-3",
+          scrub: true,
+        },
+        y: -400,
+        ease: "none",
+      })
+    });
 
     
-  // }, []);
+  }, []);
 
   return (
     <div className='home-wrapper'>
@@ -148,6 +148,39 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="why-us-section">
+        <div className="section-wrapper">
+          <header>
+            <img src={logoArt} alt="" />
+            <h1>Why Us?</h1>
+          </header>
+          
+          <div className="parallax">
+            <span className='text-box text-box-1'>
+              Blockchain technology allows for a secure, decentralized network, meaning that no central authority or intermediary is controlling the transactions, reducing the risk of fraud or corruption.
+            </span>
+            <div className="img-box img-box-1">
+              <img src={contractImg} alt="" />
+            </div>
+            <span className='text-box text-box-2'>
+              Real-time tracking of campaign progress and transaction status, providing users with up-to-date and transparent information throughout the crowdfunding process.
+            </span>
+            <div className="img-box img-box-2">
+              <img src={fastImg} alt="" />
+            </div>
+            <span className='text-box text-box-3'>
+              Streamlined fund disbursement, whereby funds are directly transferred to the beneficiary's account, eliminating the need for manual collection as is often required on other platforms.
+            </span>
+            <div className="img-box img-box-3">
+              <img src={transactionImg} alt="" />
+            </div>
+            <span className='text-box text-box-4'>
+              Instant, borderless transactions, which means that donors from all over the world can contribute to a crowdfunding campaign.
+            </span>
+          </div>
+          
+        </div>
+      </section>
 
       <section className='campaigns-section medical-campaigns-section'>
       {(campaigns.length===0)?
