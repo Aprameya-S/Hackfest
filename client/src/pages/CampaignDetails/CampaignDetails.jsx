@@ -65,15 +65,18 @@ const CampaignDetails = () => {
       
       camp.forEach((c) => {
         console.log(c[0].address,state.owner)
-        // if(c.address==state.owner){
-        //   console.log(c.address)
-        // }
+        if(c[0].verified==true){
+          if(c[0].address==state.owner && c[0].name==state.beneficiaryName){
+            setIsVerified(true)
+          }
+        }
+        
       })
       
       setIsLoading(false)
     // console.log(campaignDonators, amount)
   }
-
+  console.log(isVerified)
 
   const progress = calculateBarPercentage(state.target, amountDonated);
 
@@ -139,7 +142,7 @@ const CampaignDetails = () => {
           <h3>Story</h3>
           <p className='story'>
             {state.description}<br/><br/>
-            <span className='flex text-green-600 mb-[10px]'><img src={badge} className='mr-[5px]' alt="Verified" />Verified</span>
+            {isVerified && <span className='flex text-green-600 mb-[10px]'><img src={badge} className='mr-[5px]' alt="Verified" />Verified</span>}
             <span><a href={state.documentUrl}>Click here</a> to view documents.</span>
           </p>  
         </div>
