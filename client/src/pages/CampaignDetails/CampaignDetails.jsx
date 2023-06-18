@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { calculateBarPercentage, daysLeft } from '../../utils'
 import { Transaction, Loader } from '../../components'
 import './campaigndetails.scss'
+import { badge } from '../../assets'
 
 const CampaignDetails = () => {
   useEffect(() => {
@@ -106,7 +107,7 @@ const CampaignDetails = () => {
           <h3>Story</h3>
           <p className='story'>
             {state.description}<br/><br/>
-            <span><a href={state.documentUrl}>Click here</a> to view documents.</span>
+            <span className='flex'><img src={badge} className='mr-[10px]' alt="Verified" /><a href={state.documentUrl}>Click here</a> to view documents.</span>
           </p>  
         </div>
 

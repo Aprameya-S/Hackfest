@@ -4,6 +4,7 @@ import contractImg from './contract.png'
 import fastImg from './fast.png'
 import logoArt from './logo-art.png'
 import transactionImg from './transaction.png'
+import badge from './badge.png'
 
 export {
     logo,
@@ -11,5 +12,6 @@ export {
     contractImg,
     fastImg,
     logoArt,
-    transactionImg
+    transactionImg,
+    badge
 };

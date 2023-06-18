@@ -6,6 +6,10 @@ $prim-grad: linear-gradient(135deg, #c479eb, #7648f0);
 $bg-color: #ffffff;
 $line-color: rgba(114,69,240,.5);
 
+
+g {
+    stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;
+}
 .cd-wrapper {
     padding-inline: 40px;
     padding-bottom: 5vw;
